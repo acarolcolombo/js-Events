@@ -84,9 +84,12 @@ function newIngredient(){
 puggy.addEventListener("mouseover", newImage);
 
 function newImage(){
-    var imgElem = document.getElementById("puggy"); 
-    imgElem.src = "https://media.giphy.com/media/12pJ8OxSWwO86Y/giphy.gif";
-   
+    var imgElem = document.getElementById("puggy");
+    if(imgElem.src === "https://bit.ly/2RhOvm4"){
+        imgElem.src = "https://media.giphy.com/media/12pJ8OxSWwO86Y/giphy.gif";
+    }else{
+        imgElem.src = "https://bit.ly/2RhOvm4";
+    }  
 }
 
 
@@ -121,36 +124,57 @@ function addBio(){
     document.getElementById("bio");
     var nameBio = document.createElement("p");
     nameBio.id = "nameBio";
-    nameBio.innerHTML = "Grimace";
+    nameBio.innerHTML = "name: " + "Grimace";
     bio.appendChild(nameBio);
+
 
     var ageBio = document.createElement("p");
     ageBio.id = "nameBio";
-    ageBio.innerHTML = "47";
+    ageBio.innerHTML = "age: " + "47";
     bio.appendChild(ageBio);
 
     var signBio = document.createElement("p");
     signBio.id = "nameBio";
-    signBio.innerHTML = "Scorpio";
+    signBio.innerHTML = "sign: " +  "Scorpio";
     bio.appendChild(signBio);
 
     var bloodyBio = document.createElement("p");
     bloodyBio.id = "nameBio";
-    bloodyBio.innerHTML = "O postive";
+    bloodyBio.innerHTML = "bloody type: " + "O postive";
     bio.appendChild(bloodyBio);
 
     var hobbiesBio = document.createElement("p");
     hobbiesBio.id = "nameBio";
-    hobbiesBio.innerHTML = ['knitting', 'scrapbooking', 'mixed martial arts'];
+    hobbiesBio.innerHTML = "hobbies: " +['knitting', 'scrapbooking', 'mixed martial arts'];
     bio.appendChild(hobbiesBio);
 }
+
+// Another option is for in loop (object):
+// for(key in grimace){
+//     console.log(grimace[i]);
+// }
 
 //8. Fortune Cookie
 /*Add an event listener to the `fortune` button that will generate a random message in the `showFortune` h3 element after clicking on the button*/
 
 var messages = ["That wasn't chicken.", "The fortune you seek is in another cookie.", "Tell your friends about DevLeague Prep.", "You will be doing many events tonight.", "Don't let statistics do a number on you.", "Buy your instructor a drink and receive double fortune.", "Is a turtle without a shell naked or homeless?"];
 
+fortune.addEventListener("click", randomMessage);
+
+function randomMessage(){
+    for (var i = 0; i<messages.length; i++){
+    showFortune.innerHTML = messages[i];
+    var x = Math.floor((Math.random() * messages.length));
+    showFortune.innerHTML = messages[x];
+    }
+}
+
 
 //9. Open Sesame
 /*Add an event listener to the `secret` input element that will capitalize letter inputs in the form. Hint, you'll be using the keyup event*/
 
+// secret.addEventListener("mouseover", capitalizeL)
+
+// function capitalizeL(){
+
+// }
