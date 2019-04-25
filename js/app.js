@@ -67,9 +67,12 @@ var missing = "1 Big ol' beet";
 recipe.addEventListener("click", newIngredient);
 
 function newIngredient(){
-    var pIngr = document.getElementById("ingredient");
-    pIngr.innerHTML = missing;
-    ingredient.appendChild(pIngr);
+    document.getElementById("ingredient");
+    var liIngredient = document.createElement("li")
+    liIngredient.className = "mix";
+    liIngredient.innerHTML = missing;
+    ingredient.appendChild(liIngredient);
+    
 }
 
 //5. Pug Life
@@ -78,11 +81,27 @@ function newIngredient(){
 // Use this for the new image:
 // 'https://media.giphy.com/media/12pJ8OxSWwO86Y/giphy.gif'
 
+puggy.addEventListener("mouseover", newImage);
+
+function newImage(){
+    var imgElem = document.getElementById("puggy"); 
+    imgElem.src = "https://media.giphy.com/media/12pJ8OxSWwO86Y/giphy.gif";
+   
+}
 
 
 //6. DevLeague Lunch Wagon
 /*Add an event listener to the `menu` div element that will display and hide the dessert item after clicking on 'Today's Special'*/
 
+menu.addEventListener("click", dessertItem);
+
+function dessertItem(){
+    if (dessert.style.display === "block"){
+        dessert.style.display = "none";
+    }else{
+        dessert.style.display = "block";
+    }
+}
 
 
 //7. The Purple Monster
@@ -96,6 +115,35 @@ var grimace = {
     hobbies: ['knitting', 'scrapbooking', 'mixed martial arts']
 };
 
+bio.addEventListener("click", addBio);
+
+function addBio(){
+    document.getElementById("bio");
+    var nameBio = document.createElement("p");
+    nameBio.id = "nameBio";
+    nameBio.innerHTML = "Grimace";
+    bio.appendChild(nameBio);
+
+    var ageBio = document.createElement("p");
+    ageBio.id = "nameBio";
+    ageBio.innerHTML = "47";
+    bio.appendChild(ageBio);
+
+    var signBio = document.createElement("p");
+    signBio.id = "nameBio";
+    signBio.innerHTML = "Scorpio";
+    bio.appendChild(signBio);
+
+    var bloodyBio = document.createElement("p");
+    bloodyBio.id = "nameBio";
+    bloodyBio.innerHTML = "O postive";
+    bio.appendChild(bloodyBio);
+
+    var hobbiesBio = document.createElement("p");
+    hobbiesBio.id = "nameBio";
+    hobbiesBio.innerHTML = ['knitting', 'scrapbooking', 'mixed martial arts'];
+    bio.appendChild(hobbiesBio);
+}
 
 //8. Fortune Cookie
 /*Add an event listener to the `fortune` button that will generate a random message in the `showFortune` h3 element after clicking on the button*/
